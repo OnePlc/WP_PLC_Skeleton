@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define Version and directories for further use in plugin
-define( 'WPPLC_SKELETON_VERSION', '1.0.0' );
+define( 'WPPLC_SKELETON_VERSION', '1.0.1' );
 define( 'WPPLC_SKELETON_MAIN_FILE', __FILE__ );
 define( 'WPPLC_SKELETON_MAIN_DIR', __DIR__ );
 define( 'WPPLC_SKELETON_PUB_DIR','/wp-content/plugins/wp-plc-skeleton');

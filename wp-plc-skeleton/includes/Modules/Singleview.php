@@ -35,6 +35,25 @@ final class Singleview {
         if(get_option('plcskeleton_singleview_rewrite_active') == 1) {
             add_action('init', [$this,'enableCustomRewriteRule'], 10, 0);
         }
+
+        # Load Elementor Widget if active
+        if(get_option( 'plcskeleton_elementor_active') == 1) {
+            // register elementor widgets
+            add_action( 'elementor/widgets/widgets_registered', [ $this, 'initElementorWidgets' ] );
+        }
+    }
+
+    /**
+     * Initialize Elementor Widgets if activated
+     *
+     * @since 1.0.0
+     */
+    public function initElementorWidgets() {
+        # Load Skeleton Slider if active
+        if(get_option( 'plcskeleton_elementor_skeleton_slider_active') == 1) {
+            require_once(__DIR__ . '/../elementor/widgets/skeleton-single.php');
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \WPPLC_Skeleton_Single());
+        }
     }
 
     /**
