@@ -42,16 +42,20 @@ final class Plugin {
         // Enable Settings Page
         Modules\Settings::load();
 
-        // Enable Elementor Settings
+        // Enable Elementor
         if(get_option('plcskeleton_elementor_active') == 1) {
             Modules\Elementor::load();
         }
 
-        // Enable ShortCode Settings
+        // Enable ShortCode
         if(get_option('plcskeleton_shortcodes_active') == 1) {
             Modules\Shortcodes::load();
         }
-        //
+
+        // Enable Single View
+        if(get_option('plcskeleton_singleview_active') == 1) {
+            Modules\Singleview::load();
+        }
     }
 
     /**

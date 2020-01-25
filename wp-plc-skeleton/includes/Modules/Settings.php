@@ -36,6 +36,9 @@ final class Settings {
 
         // Add Plugin Languages
         add_action('plugins_loaded', [ $this, 'loadTextDomain' ] );
+
+        // enqueue slider custom scripts for frontend
+        add_action( 'wp_enqueue_scripts', [$this,'enqueueScripts'] );
     }
 
     /**
@@ -57,6 +60,8 @@ final class Settings {
 
         // Sub Module Handling
         register_setting( 'wpplc_skeleton', 'plcskeleton_elementor_active', false );
+        register_setting( 'wpplc_skeleton', 'plcskeleton_shortcodes_active', false );
+        register_setting( 'wpplc_skeleton', 'plcskeleton_singleview_active', false );
     }
 
     /**
@@ -78,6 +83,18 @@ final class Settings {
 
         add_submenu_page( $menu_slug, $page_title, $menu_title,
             'manage_options', 'oneplace-shop',  [$this,'renderSettingsPage'] );
+    }
+
+    /**
+     * Enqueue Elementor Widget Frontend Custom Scripts
+     *
+     * @since 1.0.0
+     */
+    public function enqueueScripts() {
+        if(get_option('plcskeleton_elementor_skeleton_slider_active') == 1) {
+            wp_enqueue_script('plc-skeleton-slider', '/wp-content/plugins/wp-plc-skeleton/assets/js/skeleton-slider.js', ['jquery']);
+            wp_enqueue_style( 'plc-skeleton-slider-style', '/wp-content/plugins/wp-plc-skeleton/assets/css/skeleton-slider.css');
+        }
     }
 
     /**

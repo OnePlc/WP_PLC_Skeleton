@@ -68,7 +68,7 @@ final class Shortcodes {
                     $sSliderID = '1234';
 
                     # get template
-                    include_once __DIR__.'/../view/partials/article-slider.php';
+                    include_once __DIR__.'/../view/partials/skeleton-slider.php';
                 } else {
                     echo 'Error: ' . $oCatInfo->message;
                 }

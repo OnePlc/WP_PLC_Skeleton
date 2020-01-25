@@ -30,6 +30,17 @@
         </div>
         <!--Enable Shortcodes Support -->
 
+        <!-- Enable Skeleton Single View -->
+        <div class="plc-admin-settings-field">
+            <label class="plc-settings-switch">
+                <?php $bSingleViewActive = get_option( 'plcskeleton_singleview_active', false ); ?>
+                <input name="plcskeleton_singleview_active" type="checkbox" <?=($bSingleViewActive == 1)?'checked':''?> class="plc-settings-value" />
+                <span class="plc-settings-slider"></span>
+            </label>
+            <span>Enable Skeleton Single View</span>
+        </div>
+        <!-- Enable Skeleton Single View -->
+
     <?php } else { ?>
         <p style="color:red;">Elementor Version <?=ELEMENTOR_VERSION?> found. <br><i>Please Update to at least 2.7.0</i></p>
     <?php } ?>

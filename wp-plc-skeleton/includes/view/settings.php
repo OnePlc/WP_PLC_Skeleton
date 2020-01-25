@@ -43,6 +43,13 @@
                                 </a>
                             </li>
                         <?php } ?>
+                        <?php if(get_option('plcskeleton_singleview_active') == true) { ?>
+                            <li class="plc-admin-menu-list-item">
+                                <a href="#/singleview">
+                                    <?=__('Single View','wp-plc-skeleton')?>
+                                </a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </nav>
                 <div class="plc-admin-alert-container" style="float:left; width:30%; padding:40px 0 40px 0;">
@@ -63,6 +70,10 @@
                 if(get_option('plcskeleton_shortcodes_active') == 1) {
                     // Include Shortcodes Settings
                     require_once __DIR__.'/partials/shortcodes.php';
+                }
+                if(get_option('plcskeleton_singleview_active') == 1) {
+                    // Include Single View Settings
+                    require_once __DIR__.'/partials/singleview.php';
                 }
                 ?>
             </div>
